@@ -10,12 +10,15 @@ export const UserContext = createContext({
   currentUser: null,
 });
 
+const INITIAL_STATE = {
+  currentUser: null,
+}
+
 export const USER_ACTION_TYPES = {
   SET_CURRENT_USER : 'SET_CURRENT_USER',
 }
 
 const userReducer = (state, action) => {
-  console.log('userReducer dispatched')
   const { type, payload } = action;
   switch(type){
     case USER_ACTION_TYPES.SET_CURRENT_USER:
@@ -23,10 +26,6 @@ const userReducer = (state, action) => {
     default:
       throw new Error('Underfined type');
   }
-}
-
-const INITIAL_STATE = {
-  currentUser: null,
 }
 
 export const UserProvider = ({ children }) => {
